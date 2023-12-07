@@ -1,0 +1,27 @@
+nav {
+    background-color: #4c32a8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: 500;
+    font-family: "Roboto";
+    list-style: none;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+ul {
+    display: flex;
+    padding-right: 20px;
+}
+
+.gather-hub {
+    font-weight: 500;
+    color: #ffffff;
+    padding-left: 20px;
+}
