@@ -1,0 +1,15 @@
+.sign-up-img-container {
+    display: none;
+}
+
+@media screen and (min-width: 800px) {
+    .sign-up-img-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #9796f0;
+        height: 100vh;
+        width: 50vw;
+    }
+
+}

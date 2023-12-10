@@ -1,14 +1,18 @@
 import { useState } from "react"
 import Navbar from "../Navbar"
 
+import "./index.css"
+
 const SignUp = () => {
-    const { newEmail, setNewEmail } = useState("")
+
 
     return (
-        <div>
+        <>
             <Navbar />
-            <h1>Hello Signup</h1>
-        </div>
+            <div className="sign-up-img-container">
+                <img className="sign-up-img" alt="sign in" src="https://www.hapihhost.in/wp-content/uploads/2020/06/Confernce.png" />
+            </div>
+        </>
     )
 }
 
