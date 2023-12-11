@@ -7,6 +7,7 @@ const SignIn = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false)
+    const [showLoginError, setShowLoginError] = useState("")
 
 
     const onSubmit = (e) => {
@@ -16,9 +17,8 @@ const SignIn = () => {
 
     const handleLogin = async () => {
         const userData = { userEmail: email, userPassword: password }
-        console.log(userData)
         try {
-            const response = await fetch('https://example.com/api/login', {
+            const response = await fetch('/api/v1/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const SignIn = () => {
                     <form>
 
                         <div className="input-container">
-                            <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Email Address" className="input-email"/>
+                            <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Email Address" className="input-email" />
                         </div>
 
 
