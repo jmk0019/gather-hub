@@ -33,13 +33,34 @@ const AddNewMeet = () => {
         const { name, value } = e.target;
         setAddNewMeet({ ...addNewMeet, [name]: value });
     };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission, e.g., send data to the server
-        console.log("Form submitted:", addNewMeet);
-        // Reset the form or redirect if needed
+
+        try {
+            const response = await fetch("/api/v1/meeting/add", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(addNewMeet),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            // If the response is successful, you can handle it here
+            console.log('Form submitted successfully');
+            const data = response.json()
+            console.log(data)
+
+            // Reset the form or redirect if needed
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            // Handle errors, maybe show an error message to the user
+        }
     };
+
 
     return (
         <>
@@ -47,13 +68,13 @@ const AddNewMeet = () => {
             <div>
                 <form onSubmit={handleSubmit}>
                     <h1 className="Meeting-heading">Add Title</h1>
-                    <hr className="Meeting-underline"/>
+                    <hr className="Meeting-underline" />
                     <div>
-                        <label className="meeting-label"><FaRegCalendarAlt className="icon-size"/></label>
+                        <label className="meeting-label"><FaRegCalendarAlt className="icon-size" /></label>
                         <DatePicker className="date-picker" selected={addNewMeet.when} onChange={handleDateChange} />
                     </div>
                     <div>
-                        <label className="meeting-label"><MdAccessTimeFilled className="icon-size"/></label>
+                        <label className="meeting-label"><MdAccessTimeFilled className="icon-size" /></label>
                         <TimePicker className="date-picker" value={addNewMeet.startTime} onChange={handleStartTimeChange} />
                     </div>
                     <div>
@@ -77,7 +98,7 @@ const AddNewMeet = () => {
                             name="agenda"
                             value={addNewMeet.agenda}
                             onChange={handleInputChange}
-                            
+
                         />
                     </div>
                     <div>
