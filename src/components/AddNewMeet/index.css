@@ -1,0 +1,48 @@
+.Meeting-heading{
+    font-family: 'Roboto';
+    font-size: 25px;
+    font-weight: bold;
+    margin: 50px 50px 0px 50px;
+
+}
+.Meeting-underline{
+    border: 1px solid #bab1b1;
+    width: 30%;
+    margin-left: 10px;
+}
+.meeting-label{
+    margin: 20px;    
+
+}
+.icon-size{
+    height: 30px;
+    width: 40px;
+}
+.date-picker{
+    height: 30px;
+    width: 250px;
+    background-color:#bab1b1 ;
+    border-width: 0px;
+}
+.new-metting-button {
+    background-color: #4c32a8;
+    height: 40px;
+    width: 130px;
+    color: #ffffff;
+    font-family: "Roboto";
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+    margin: 30px;
+}
+.meeting-side-heading{
+    font-family: 'Roboto';
+    font-size: 20px;
+
+}
+.meeting-text-area-element{
+    height: 100px;
+    width: 350px;
+}

@@ -1,12 +1,7 @@
-
-import { useState } from "react"
-
-import Navbar from "../Navbar"
-
+import { useState } from "react";
+import Navbar from "../Navbar";
 import { BsEyeSlashFill, BsEyeFill, BsQuestionCircleFill } from "react-icons/bs";
-
-
-import "./index.css"
+import "./index.css";
 
 const SignIn = () => {
     const [email, setEmail] = useState("")
@@ -64,7 +59,7 @@ const SignIn = () => {
                     <form>
 
                         <div className="input-container">
-                            <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Email Address" />
+                            <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Email Address" className="input-email"/>
                         </div>
 
 

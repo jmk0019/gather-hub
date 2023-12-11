@@ -46,22 +46,24 @@ const AddNewMeet = () => {
             <Navbar />
             <div>
                 <form onSubmit={handleSubmit}>
+                    <h1 className="Meeting-heading">Add Title</h1>
+                    <hr className="Meeting-underline"/>
                     <div>
-                        <label><FaRegCalendarAlt /></label>
-                        <DatePicker selected={addNewMeet.when} onChange={handleDateChange} />
+                        <label className="meeting-label"><FaRegCalendarAlt className="icon-size"/></label>
+                        <DatePicker className="date-picker" selected={addNewMeet.when} onChange={handleDateChange} />
                     </div>
                     <div>
-                        <label><MdAccessTimeFilled/></label>
-                        <TimePicker value={addNewMeet.startTime} onChange={handleStartTimeChange} />
+                        <label className="meeting-label"><MdAccessTimeFilled className="icon-size"/></label>
+                        <TimePicker className="date-picker" value={addNewMeet.startTime} onChange={handleStartTimeChange} />
                     </div>
                     <div>
-                        <label>End Time:</label>
-                        <TimePicker value={addNewMeet.endTime} onChange={handleEndTimeChange} />
+                        <label className="meeting-label meeting-side-heading">End Time:</label>
+                        <TimePicker className="date-picker" value={addNewMeet.endTime} onChange={handleEndTimeChange} />
                     </div>
 
                     <div>
-                        <label>Who:</label>
-                        <input
+                        <label className="meeting-label meeting-side-heading">Add Guests:</label>
+                        <input className="date-picker"
                             type="text"
                             name="who"
                             value={addNewMeet.who}
@@ -69,16 +71,17 @@ const AddNewMeet = () => {
                         />
                     </div>
                     <div>
-                        <label>Agenda:</label>
-                        <input
+                        <label className="meeting-label meeting-side-heading">Agenda:</label>
+                        <input className="date-picker meeting-text-area-element"
                             type="text"
                             name="agenda"
                             value={addNewMeet.agenda}
                             onChange={handleInputChange}
+                            
                         />
                     </div>
                     <div>
-                        <button type="submit">Add Meeting</button>
+                        <button className="new-metting-button" type="submit">Create</button>
                     </div>
                 </form>
             </div>

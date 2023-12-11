@@ -8,12 +8,14 @@ import './App.css';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" Component={SignIn} />
-      <Route path="/signup" Component={SignUp} />
-      <Route path='/meetings' Component={Meetings} />
-      <Route path="/new-metting" Component={AddNewMeet} />
-    </Routes>
+    
+     <Routes>
+       <Route path="/" Component={SignIn} />
+       <Route path="/signup" Component={SignUp} />
+       <Route path='/meetings' Component={Meetings} />
+       <Route path="/new-metting" Component={AddNewMeet} />
+       <Route path="/signin" Component={SignIn}/>
+     </Routes>
 
   );
 }
