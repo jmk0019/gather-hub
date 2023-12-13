@@ -2,42 +2,44 @@ import { useState } from "react";
 import Navbar from "../Navbar";
 import { BsEyeSlashFill, BsEyeFill, BsQuestionCircleFill } from "react-icons/bs";
 import "./index.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 const SignIn = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false)
     const [showLoginError, setShowLoginError] = useState("")
-
-
-    const onSubmit = (e) => {
-        e.preventDefault()
-        handleLogin()
-    }
-
-    const handleLogin = async () => {
-        const userData = { userEmail: email, userPassword: password }
-        try {
-            const response = await fetch('/api/v1/users/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    // Add any additional headers if needed
-                },
-                body: JSON.stringify(userData),
-            });
-
-            if (!response.ok) {
-                throw new Error('Login failed');
-            }
-
-            const responseData = await response.json();
-            console.log('Login successful:', responseData);
-            // You may want to store the authentication token or perform other actions upon successful login
-        } catch (error) {
-            console.error('Error during login:', error.message);
+    const navigate = useNavigate();
+   const handleSubmit = async (event) => {
+        event.preventDefault();
+        if (email === '' || password === '') {
+          alert('Please fill in all fields.');
+          return; // Don't proceed if fields are empty
         }
-    };
+    
+        try {
+         const response = await axios.post('http://localhost:8080/authenticate', {
+            email,
+            password,
+          });
+          const token = response.data.jwt;
+
+        // Store the token in a cookie
+        Cookies.set('token', token, { expires: 7 }); // Set the token in a cookie that expires in 7 days
+
+       
+          alert("User Login Successfully");
+          navigate('/Signup');
+    
+         
+        } 
+        catch (error) {
+          alert("Login Failed");
+        }
+      };
+    
 
 
 
@@ -86,7 +88,7 @@ const SignIn = () => {
                             </div>
                         </div>
 
-                        <button className="sign-in-button" onClick={onSubmit} type="submit">Sign In</button>
+                        <button className="sign-in-button" onClick={handleSubmit} type="submit">Sign In</button>
                     </form>
                     <div className="line-container">
                         <hr className="line" />

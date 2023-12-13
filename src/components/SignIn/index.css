@@ -135,6 +135,7 @@ form {
     font-weight: 500;
     font-family: "Roboto";
     padding: 5px;
+    cursor: pointer;
 }
 
 .line-container {
