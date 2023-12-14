@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./index.css";
 import Frame from "../images/sideimage.png";
-import Logo from "../images/sideimage.png";
+import Logo from "../images/Frame 2.png";
 import { FaUser } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { IoMdLock } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Navbar from "../Navbar";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -74,7 +75,11 @@ const SignUp = () => {
     
 
   return (
+    <div>
+      <Navbar/>
+    
     <div className="signup-main-container">
+      
       <div className="signup-container">
         <div className="logo-container">
           <img src={Frame} alt="Frame" className="login-side-image" />
@@ -177,14 +182,13 @@ const SignUp = () => {
               </p>
             )}
             <p className="signin-paragraph">
-              Already registered ? <a className="signin-style">Sign In</a>
+              Already registered ? <a  href="/Signin" className="signin-style">Sign In</a>
             </p>
           </form>
-          {/* <p>
-            Already registered ? <a className="signin-style">Sign In</a>
-          </p> */}
+       
         </div>
       </div>
+    </div>
     </div>
   );
 };

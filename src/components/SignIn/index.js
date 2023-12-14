@@ -10,7 +10,7 @@ const SignIn = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false)
-    const [showLoginError, setShowLoginError] = useState("")
+    
     const navigate = useNavigate();
    const handleSubmit = async (event) => {
         event.preventDefault();
@@ -31,7 +31,7 @@ const SignIn = () => {
 
        
           alert("User Login Successfully");
-          navigate('/Signup');
+          navigate('/meetings');
     
          
         } 
