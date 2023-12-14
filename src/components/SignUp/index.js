@@ -76,7 +76,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
     
     <div className="signup-main-container">
       
